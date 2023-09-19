@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  year: 1
+  image: MyString
+  color: MyString
+  score: 1
+  rating: 1
+  objectID: MyString
+
+two:
+  title: MyString
+  year: 1
+  image: MyString
+  color: MyString
+  score: 1
+  rating: 1
+  objectID: MyString
