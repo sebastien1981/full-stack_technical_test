@@ -56,6 +56,6 @@ movies.each do |movie|
         movie: new_movie,
         genre: new_genre
        )
-       print "#{nbr} movies left to create\n\n"
+       print "#{nbr} movies left to create to the test\n\n"
        nbr -= 1
   end
