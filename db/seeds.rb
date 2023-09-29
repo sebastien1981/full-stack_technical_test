@@ -20,8 +20,9 @@ MovieAlternativeTitle.destroy_all
 Genre.destroy_all
 MovieGenre.destroy_all
 
+nbr = 5892
 movies.each do |movie| 
-  nbr = 1
+  
   new_movie = Movie.create(title: movie["title"],
     year: movie["year"],
     image: movie["image"],
@@ -55,6 +56,6 @@ movies.each do |movie|
         movie: new_movie,
         genre: new_genre
        )
-       print "#{nbr} users left to create\n\n"
-       nbr += 1
+       print "#{nbr} movies left to create\n\n"
+       nbr -= 1
   end
