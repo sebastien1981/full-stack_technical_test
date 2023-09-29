@@ -1,6 +1,6 @@
-class CreateAlternativeTitleJs < ActiveRecord::Migration[7.0]
+class CreateMovieAlternativeTitles < ActiveRecord::Migration[7.0]
   def change
-    create_table :alternative_title_js do |t|
+    create_table :movie_alternative_titles do |t|
       t.references :movie, null: false, foreign_key: true
       t.references :alternative_title, null: false, foreign_key: true
 

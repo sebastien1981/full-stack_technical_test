@@ -11,29 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_19_113656) do
-  create_table "actor_js", force: :cascade do |t|
-    t.integer "actor_id", null: false
-    t.integer "movie_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["actor_id"], name: "index_actor_js_on_actor_id"
-    t.index ["movie_id"], name: "index_actor_js_on_movie_id"
-  end
-
   create_table "actors", force: :cascade do |t|
     t.string "actors"
     t.string "actor_facets"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "alternative_title_js", force: :cascade do |t|
-    t.integer "movie_id", null: false
-    t.integer "alternative_title_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["alternative_title_id"], name: "index_alternative_title_js_on_alternative_title_id"
-    t.index ["movie_id"], name: "index_alternative_title_js_on_movie_id"
   end
 
   create_table "alternative_titles", force: :cascade do |t|
@@ -42,19 +24,37 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_113656) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "genre_js", force: :cascade do |t|
-    t.integer "genre_id", null: false
-    t.integer "movie_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["genre_id"], name: "index_genre_js_on_genre_id"
-    t.index ["movie_id"], name: "index_genre_js_on_movie_id"
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "movie_actors", force: :cascade do |t|
+    t.integer "actor_id", null: false
+    t.integer "movie_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["actor_id"], name: "index_movie_actors_on_actor_id"
+    t.index ["movie_id"], name: "index_movie_actors_on_movie_id"
+  end
+
+  create_table "movie_alternative_titles", force: :cascade do |t|
+    t.integer "movie_id", null: false
+    t.integer "alternative_title_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alternative_title_id"], name: "index_movie_alternative_titles_on_alternative_title_id"
+    t.index ["movie_id"], name: "index_movie_alternative_titles_on_movie_id"
+  end
+
+  create_table "movie_genres", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.integer "movie_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_movie_genres_on_genre_id"
+    t.index ["movie_id"], name: "index_movie_genres_on_movie_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -69,10 +69,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_113656) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "actor_js", "actors"
-  add_foreign_key "actor_js", "movies"
-  add_foreign_key "alternative_title_js", "alternative_titles"
-  add_foreign_key "alternative_title_js", "movies"
-  add_foreign_key "genre_js", "genres"
-  add_foreign_key "genre_js", "movies"
+  add_foreign_key "movie_actors", "actors"
+  add_foreign_key "movie_actors", "movies"
+  add_foreign_key "movie_alternative_titles", "alternative_titles"
+  add_foreign_key "movie_alternative_titles", "movies"
+  add_foreign_key "movie_genres", "genres"
+  add_foreign_key "movie_genres", "movies"
 end
