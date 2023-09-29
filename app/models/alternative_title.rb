@@ -1,4 +1,4 @@
 class AlternativeTitle < ApplicationRecord
-  has_many :alternative_title_j, dependent: :destroy
-  has_many :movies, through: :alternative_title_j
+  has_many :movie_alternative_titles, dependent: :destroy
+  has_many :movies, through: :movie_alternative_titles
 end
